@@ -1,40 +1,29 @@
-'use strict';
-const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
+"use strict";
+const Generator = require("yeoman-generator");
+const chalk = require("chalk");
+const yosay = require("yosay");
 
 module.exports = class extends Generator {
-  prompting() {
+  async prompting() {
     // Have Yeoman greet the user.
     this.log(
-      yosay(
-        `Welcome to the super-excellent ${chalk.red('generator-sts-yo-protemplate')} generator!`
-      )
+      yosay(`Welcome to the ${chalk.red("generator-sts-test")} generator!`)
     );
 
-    const prompts = [
+    this.answers = await this.prompt([
       {
-        type: 'confirm',
-        name: 'someAnswer',
-        message: 'Would you like to enable this option?',
-        default: true
+        type: "input",
+        name: "modid",
+        message: "Modid:"
       }
-    ];
-
-    return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
-    });
+    ]);
   }
 
   writing() {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+    this.fs.copyTpl(
+      this.templatePath("src/main/java/theTodo/_TodoMod.java"),
+      this.destinationPath("output/src/main/java/theTodo/TodoMod.java"),
+      { modid: this.answers.modid }
     );
-  }
-
-  install() {
-    this.installDependencies();
   }
 };

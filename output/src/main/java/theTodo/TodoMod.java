@@ -31,7 +31,7 @@ public class TodoMod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber {
 
-    public static final String modID = "todomod"; //TODO: Change this.
+    public static final String modID = "test"; //TODO: Change this.
 
     public static String makeID(String idText) {
         return modID + ":" + idText;
