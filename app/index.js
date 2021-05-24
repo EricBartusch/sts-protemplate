@@ -27,3 +27,12 @@ module.exports = class extends Generator {
     );
   }
 };
+
+/*
+Modid
+modName - camal
+ModName - pascal
+description
+steam path
+
+*/
