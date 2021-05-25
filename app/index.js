@@ -141,7 +141,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath(`src/main/resources/todomodResources/**/*`),
       this.destinationPath(
-        `output/src/main/resources/${this.answers.modIdPascal}Resources/`
+        `output/src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/`
       ),
       {
         modIdPascal: this.answers.modIdPascal,
