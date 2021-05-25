@@ -1,12 +1,12 @@
 {
   "name": "generator-sts-yo-protemplate",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Yeoman generator for starting up new Slay the Spire mods",
   "homepage": "https://github.com/EricBartusch/StS-yo-protemplate",
   "author": {
     "name": "Eric Bartusch",
     "email": "ericbartusch8@gmail.com",
-    "url": ""
+    "url": "https://github.com/EricBartusch"
   },
   "files": [
     "generators"
