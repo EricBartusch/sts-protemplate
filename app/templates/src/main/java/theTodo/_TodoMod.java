@@ -1,4 +1,4 @@
-package theTodo;
+package <%= modIdCamal %>;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
@@ -15,23 +15,23 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import theTodo.cards.AbstractEasyCard;
-import theTodo.cards.cardvars.SecondDamage;
-import theTodo.cards.cardvars.SecondMagicNumber;
-import theTodo.relics.AbstractEasyRelic;
+import <%= modIdCamal %>.cards.AbstractEasyCard;
+import <%= modIdCamal %>.cards.cardvars.SecondDamage;
+import <%= modIdCamal %>.cards.cardvars.SecondMagicNumber;
+import <%= modIdCamal %>.relics.AbstractEasyRelic;
 
 import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
-public class TodoMod implements
+public class <%= modIdPascal %> implements
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber {
 
-    public static final String modID = "<%= modid %>"; //TODO: Change this.
+    public static final String modID = "<%= modIdPascal %>";
 
     public static String makeID(String idText) {
         return modID + ":" + idText;
@@ -54,7 +54,7 @@ public class TodoMod implements
     private static final String CHARSELECT_BUTTON = modID + "Resources/images/charSelect/charButton.png";
     private static final String CHARSELECT_PORTRAIT = modID + "Resources/images/charSelect/charBG.png";
 
-    public TodoMod() {
+    public <%= modIdPascal %>() {
         BaseMod.subscribe(this);
 
         BaseMod.addColor(TheTodo.Enums.TODO_COLOR, characterColor, characterColor, characterColor,
@@ -85,7 +85,7 @@ public class TodoMod implements
     }
 
     public static void initialize() {
-        TodoMod thismod = new TodoMod();
+        <%= modIdPascal %> thismod = new <%= modIdPascal %>();
     }
 
     @Override

@@ -25,7 +25,7 @@ import theTodo.relics.TodoItem;
 import java.util.ArrayList;
 
 import static theTodo.TheTodo.Enums.TODO_COLOR;
-import static theTodo.TodoMod.*;
+import static theTodo.<%= modIdPascal %>.*;
 
 public class TheTodo extends CustomPlayer {
     private static final String[] orbTextures = {
