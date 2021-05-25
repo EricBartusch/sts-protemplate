@@ -1,3 +1,3 @@
 
-# <%= modIdPascal %>
-Replace this 
+# StS-yo-protemplate
+Yeoman generator for starting up new Slay the Spire mods
