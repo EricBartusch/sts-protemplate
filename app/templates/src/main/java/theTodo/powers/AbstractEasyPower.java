@@ -6,13 +6,13 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import <%= modIdCamel %>.TodoMod;
+import <%= modIdCamel %>.<%= modIdPascal %>;
 import <%= modIdCamel %>.util.TexLoader;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static <%= modIdCamel %>.TodoMod.makeID;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
 
 public abstract class AbstractEasyPower extends AbstractPower {
     public AbstractEasyPower(String NAME, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
@@ -25,8 +25,8 @@ public abstract class AbstractEasyPower extends AbstractPower {
         this.amount = amount;
         this.type = powerType;
 
-        Texture normalTexture = TexLoader.getTexture(TodoMod.modID + "Resources/images/powers/" + NAME.replaceAll("([ ])", "") + "32.png");
-        Texture hiDefImage = TexLoader.getTexture(TodoMod.modID + "Resources/images/powers/" + NAME.replaceAll("([ ])", "") + "84.png");
+        Texture normalTexture = TexLoader.getTexture(<%= modIdPascal %>.modID + "Resources/images/powers/" + NAME.replaceAll("([ ])", "") + "32.png");
+        Texture hiDefImage = TexLoader.getTexture(<%= modIdPascal %>.modID + "Resources/images/powers/" + NAME.replaceAll("([ ])", "") + "84.png");
         if (hiDefImage != null) {
             region128 = new TextureAtlas.AtlasRegion(hiDefImage, 0, 0, hiDefImage.getWidth(), hiDefImage.getHeight());
             if (normalTexture != null)

@@ -57,6 +57,7 @@ module.exports = class extends Generator {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel,
         modIdLower: this.answers.modIdPascal.toLowerCase(),
+        modIdSpaces: this.answers.modIdPascal.replace(/([A-Z])/g, " $1"),
         steamPath: this.answers.steamPath
       }
     );
@@ -135,14 +136,25 @@ module.exports = class extends Generator {
 
     // Resources
     this.fs.copyTpl(
-      this.templatePath(`src/main/resources/**/*`),
-      this.destinationPath(`output/src/main/resources/`),
+      this.templatePath(`src/main/resources/todomodResources/**/*`),
+      this.destinationPath(
+        `output/src/main/resources/${this.answers.modIdPascal}/`
+      ),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel
       },
       null,
       { globOptions: { dot: true } }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath(`src/main/resources/ModTheSpire.json`),
+      this.destinationPath(`output/src/main/resources/ModTheSpire.json`),
+      {
+        modIdPascal: this.answers.modIdPascal,
+        modIdCamel: this.modIdCamel
+      }
     );
   }
 };

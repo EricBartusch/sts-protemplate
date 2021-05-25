@@ -24,7 +24,7 @@ import <%= modIdCamel %>.relics.TodoItem;
 
 import java.util.ArrayList;
 
-import static theTod<%= modIdCamel %>.TheTodo.Enums.TODO_COLOR;
+import static <%= modIdCamel %>.TheTodo.Enums.TODO_COLOR;
 import static <%= modIdCamel %>.<%= modIdPascal %>.*;
 
 public class TheTodo extends CustomPlayer {

@@ -5,8 +5,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import <%= modIdCamel %>.util.TexLoader;
 
-import static <%= modIdCamel %>.TodoMod.makeRelicPath;
-import static <%= modIdCamel %>.TodoMod.modID;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeRelicPath;
+import static <%= modIdCamel %>.<%= modIdPascal %>.modID;
 
 public abstract class AbstractEasyRelic extends CustomRelic {
     public AbstractCard.CardColor color;
