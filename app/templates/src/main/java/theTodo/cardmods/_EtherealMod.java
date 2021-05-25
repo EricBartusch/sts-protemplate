@@ -1,9 +1,9 @@
-package theTodo.cardmods;
+package <%= modIdCamal %>.cardmods;
 
 import basemod.abstracts.AbstractCardModifier;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
-import static theTodo.TodoMod.makeID;
+import static <%= modIdCamal %>.<%= modIdPascal %>.makeID;
 
 public class EtherealMod extends AbstractCardModifier {
     public static String ID = makeID("EtherealMod");

@@ -1,4 +1,4 @@
-package theTodo.actions;
+package <%= modIdCamal %>.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

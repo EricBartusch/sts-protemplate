@@ -1,27 +1,27 @@
-package theTodo.cardmods;
+package <%= modIdCamal %>.cardmods;
 
 import basemod.abstracts.AbstractCardModifier;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
-import static theTodo.TodoMod.makeID;
+import static <%= modIdCamal %>.<%= modIdPascal %>.makeID;
 
-public class ExhaustMod extends AbstractCardModifier {
-    public static String ID = makeID("ExhaustMod");
+public class RetainMod extends AbstractCardModifier {
+    public static String ID = makeID("RetainMod");
 
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        return rawDescription + " NL Exhaust.";
+        return "Retain. NL " + rawDescription;
     }
 
     public boolean shouldApply(AbstractCard card) {
-        return !card.exhaust;
+        return !card.selfRetain;
     }
 
     public void onInitialApplication(AbstractCard card) {
-        card.exhaust = true;
+        card.selfRetain = true;
     }
 
     public AbstractCardModifier makeCopy() {
-        return new ExhaustMod();
+        return new RetainMod();
     }
 
     public String identifier(AbstractCard card) {
