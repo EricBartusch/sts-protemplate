@@ -25,7 +25,7 @@ import theTodo.relics.TodoItem;
 import java.util.ArrayList;
 
 import static theTodo.TheTodo.Enums.TODO_COLOR;
-import static theTodo.TheLose.*;
+import static theTodo.TestThis.*;
 
 public class TheTodo extends CustomPlayer {
     private static final String[] orbTextures = {

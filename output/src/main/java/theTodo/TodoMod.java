@@ -1,4 +1,4 @@
-package theLose;
+package testThis;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
@@ -15,23 +15,23 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import theLose.cards.AbstractEasyCard;
-import theLose.cards.cardvars.SecondDamage;
-import theLose.cards.cardvars.SecondMagicNumber;
-import theLose.relics.AbstractEasyRelic;
+import testThis.cards.AbstractEasyCard;
+import testThis.cards.cardvars.SecondDamage;
+import testThis.cards.cardvars.SecondMagicNumber;
+import testThis.relics.AbstractEasyRelic;
 
 import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
-public class TheLose implements
+public class TestThis implements
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber {
 
-    public static final String modID = "TheLose";
+    public static final String modID = "TestThis";
 
     public static String makeID(String idText) {
         return modID + ":" + idText;
@@ -54,7 +54,7 @@ public class TheLose implements
     private static final String CHARSELECT_BUTTON = modID + "Resources/images/charSelect/charButton.png";
     private static final String CHARSELECT_PORTRAIT = modID + "Resources/images/charSelect/charBG.png";
 
-    public TheLose() {
+    public TestThis() {
         BaseMod.subscribe(this);
 
         BaseMod.addColor(TheTodo.Enums.TODO_COLOR, characterColor, characterColor, characterColor,
@@ -85,7 +85,7 @@ public class TheLose implements
     }
 
     public static void initialize() {
-        TheLose thismod = new TheLose();
+        TestThis thismod = new TestThis();
     }
 
     @Override
