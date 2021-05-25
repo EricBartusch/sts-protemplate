@@ -57,7 +57,9 @@ module.exports = class extends Generator {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel,
         modIdLower: this.answers.modIdPascal.toLowerCase(),
-        modIdSpaces: this.answers.modIdPascal.replace(/([A-Z])/g, " $1"),
+        modIdSpaces: this.answers.modIdPascal
+          .replace(/([A-Z])/g, " $1")
+          .slice(1),
         steamPath: this.answers.steamPath
       }
     );

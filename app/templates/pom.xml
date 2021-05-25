@@ -5,7 +5,7 @@
 
     <artifactId><%= modIdPascal %></artifactId>
     <version>0.0.1</version>
-    <name><%= modIdSpaces %>></name>
+    <name><%= modIdSpaces %></name>
     <description>TODO: Change this description</description>
     <!-- Change the above for mod information. -->
 
