@@ -1,4 +1,4 @@
-package theTodo.cards.democards.complex;
+package <%= modIdCamel %>.cards.democards.complex;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -6,12 +6,12 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import theTodo.cards.AbstractEasyCard;
-import theTodo.powers.LambdaPower;
+import <%= modIdCamel %>.cards.AbstractEasyCard;
+import <%= modIdCamel %>.powers.LambdaPower;
 
-import static theTodo.TodoMod.makeID;
-import static theTodo.util.Wiz.applyToSelf;
-import static theTodo.util.Wiz.atb;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
+import static <%= modIdCamel %>.util.Wiz.applyToSelf;
+import static <%= modIdCamel %>.util.Wiz.atb;
 
 public class InlinePowerDemo extends AbstractEasyCard {
 

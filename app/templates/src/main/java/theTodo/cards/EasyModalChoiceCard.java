@@ -1,11 +1,11 @@
-package theTodo.cards;
+package <%= modIdCamel %>.cards;
 
 import basemod.AutoAdd;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static theTodo.TodoMod.makeID;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
 
 @AutoAdd.Ignore
 public class EasyModalChoiceCard extends AbstractEasyCard {

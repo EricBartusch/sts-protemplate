@@ -1,14 +1,14 @@
-package theTodo.cards.democards.complex;
+package <%= modIdCamel %>.cards.democards.complex;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import theTodo.actions.EasyXCostAction;
-import theTodo.cards.AbstractEasyCard;
+import <%= modIdCamel %>.actions.EasyXCostAction;
+import <%= modIdCamel %>.cards.AbstractEasyCard;
 
-import static theTodo.util.Wiz.*;
-import static theTodo.TodoMod.makeID;
+import static <%= modIdCamel %>.util.Wiz.*;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
 
 public class EasyXCostDemo extends AbstractEasyCard {
     public final static String ID = makeID("EasyXCostDemo");

@@ -1,13 +1,13 @@
-package theTodo.cards.democards.simple;
+package <%= modIdCamel %>.cards.democards.simple;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theTodo.cards.AbstractEasyCard;
+import <%= modIdCamel %>.cards.AbstractEasyCard;
 
-import static theTodo.TodoMod.makeID;
-import static theTodo.util.Wiz.*;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
+import static <%= modIdCamel %>.util.Wiz.*;
 
 public class DrawAndShiv extends AbstractEasyCard {
     public final static String ID = makeID("DrawAndShiv");

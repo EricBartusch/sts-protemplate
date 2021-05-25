@@ -1,4 +1,4 @@
-package theTodo.cards.democards.complex;
+package <%= modIdCamel %>.cards.democards.complex;
 
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
@@ -8,12 +8,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.beyond.Spiker;
-import theTodo.cardmods.LambdaMod;
-import theTodo.cards.AbstractEasyCard;
+import <%= modIdCamel %>.cardmods.LambdaMod;
+import <%= modIdCamel %>.cards.AbstractEasyCard;
 
-import static theTodo.TodoMod.makeID;
-import static theTodo.util.Wiz.makeInHand;
-import static theTodo.util.Wiz.returnTrulyRandomPrediCardInCombat;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
+import static <%= modIdCamel %>.util.Wiz.makeInHand;
+import static <%= modIdCamel %>.util.Wiz.returnTrulyRandomPrediCardInCombat;
 
 public class InlineCardModDemo extends AbstractEasyCard {
 

@@ -1,4 +1,4 @@
-package theTodo.util;
+package <%= modIdCamel %>.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -9,7 +9,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 
 import java.util.HashMap;
 
-import static theTodo.TodoMod.makeImagePath;
+import static <%= modIdCamel %>.TodoMod.makeImagePath;
 
 public class TexLoader {
     private static HashMap<String, Texture> textures = new HashMap<>();

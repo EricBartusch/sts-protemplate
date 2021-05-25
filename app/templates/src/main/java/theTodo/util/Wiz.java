@@ -1,4 +1,4 @@
-package theTodo.util;
+package <%= modIdCamel %>.util;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -17,9 +17,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import theTodo.actions.TimedVFXAction;
-import theTodo.powers.LosePowerPower;
-import theTodo.powers.NextTurnPowerPower;
+import <%= modIdCamel %>.actions.TimedVFXAction;
+import <%= modIdCamel %>.powers.LosePowerPower;
+import <%= modIdCamel %>.powers.NextTurnPowerPower;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;

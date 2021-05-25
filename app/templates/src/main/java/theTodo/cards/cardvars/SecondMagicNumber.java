@@ -1,10 +1,10 @@
-package theTodo.cards.cardvars;
+package <%= modIdCamel %>.cards.cardvars;
 
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import theTodo.cards.AbstractEasyCard;
+import <%= modIdCamel %>.cards.AbstractEasyCard;
 
-import static theTodo.TodoMod.makeID;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
 
 public class SecondMagicNumber extends DynamicVariable {
 

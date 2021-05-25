@@ -1,8 +1,8 @@
-package theTodo.relics;
+package <%= modIdCamel %>.relics;
 
-import theTodo.TheTodo;
+import <%= modIdCamel %>.TheTodo;
 
-import static theTodo.TodoMod.makeID;
+import static <%= modIdCamel %>.TodoMod.makeID;
 
 public class TodoItem extends AbstractEasyRelic {
     public static final String ID = makeID("TodoItem");

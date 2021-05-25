@@ -1,4 +1,4 @@
-package <%= modIdCamal %>.cardmods;
+package <%= modIdCamel %>.cardmods;
 
 import basemod.abstracts.AbstractCardModifier;
 

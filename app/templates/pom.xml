@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>UnimportantInfo</groupId>
 
-    <artifactId>TheTodo</artifactId>
+    <artifactId><%= modIdPascal %></artifactId>
     <version>0.0.1</version>
     <name>The Todo</name>
     <description>TODO: Change this description</description>
@@ -14,10 +14,10 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
         <ModTheSpire.version>3.18.2</ModTheSpire.version>
-        <ModID>todomod</ModID>
+        <ModID><%= modIdLower %></ModID>
 
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
-        <Steam.path>C:/Program Files (x86)/Steam/steamapps/</Steam.path>
+        <Steam.path><%= steamPath %></Steam.path>
 
     </properties>
 

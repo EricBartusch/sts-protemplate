@@ -1,4 +1,4 @@
-package theTodo.powers;
+package <%= modIdCamel %>.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -6,13 +6,13 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import theTodo.TodoMod;
-import theTodo.util.TexLoader;
+import <%= modIdCamel %>.TodoMod;
+import <%= modIdCamel %>.util.TexLoader;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static theTodo.TodoMod.makeID;
+import static <%= modIdCamel %>.TodoMod.makeID;
 
 public abstract class AbstractEasyPower extends AbstractPower {
     public AbstractEasyPower(String NAME, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {

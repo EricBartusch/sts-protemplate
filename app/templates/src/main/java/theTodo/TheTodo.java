@@ -1,4 +1,4 @@
-package <%= modIdCamal %>;
+package <%= modIdCamel %>;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
@@ -18,14 +18,14 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import <%= modIdCamal %>.cards.Defend;
-import <%= modIdCamal %>.cards.Strike;
-import <%= modIdCamal %>.relics.TodoItem;
+import <%= modIdCamel %>.cards.Defend;
+import <%= modIdCamel %>.cards.Strike;
+import <%= modIdCamel %>.relics.TodoItem;
 
 import java.util.ArrayList;
 
-import static theTod<%= modIdCamal %>.TheTodo.Enums.TODO_COLOR;
-import static <%= modIdCamal %>.<%= modIdPascal %>.*;
+import static theTod<%= modIdCamel %>.TheTodo.Enums.TODO_COLOR;
+import static <%= modIdCamel %>.<%= modIdPascal %>.*;
 
 public class TheTodo extends CustomPlayer {
     private static final String[] orbTextures = {

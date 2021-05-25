@@ -1,4 +1,4 @@
-package theTodo.util;
+package <%= modIdCamel %>.util;
 
 import basemod.BaseMod;
 import basemod.patches.whatmod.WhatMod;
@@ -14,7 +14,7 @@ import com.github.tommyettinger.colorful.Shaders;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.random.Random;
-import theTodo.cards.AbstractEasyCard;
+import <%= modIdCamel %>.cards.AbstractEasyCard;
 
 import java.util.ArrayList;
 import java.util.HashMap;

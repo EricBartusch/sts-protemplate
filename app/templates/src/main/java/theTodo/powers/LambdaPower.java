@@ -1,4 +1,4 @@
-package theTodo.powers;
+package <%= modIdCamel %>.powers;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 

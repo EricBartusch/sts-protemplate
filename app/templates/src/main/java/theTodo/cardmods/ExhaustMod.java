@@ -1,9 +1,9 @@
-package <%= modIdCamal %>.cardmods;
+package <%= modIdCamel %>.cardmods;
 
 import basemod.abstracts.AbstractCardModifier;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
-import static <%= modIdCamal %>.<%= modIdPascal %>.makeID;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
 
 public class ExhaustMod extends AbstractCardModifier {
     public static String ID = makeID("ExhaustMod");

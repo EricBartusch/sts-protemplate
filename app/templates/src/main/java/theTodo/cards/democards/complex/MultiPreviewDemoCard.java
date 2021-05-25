@@ -1,4 +1,4 @@
-package theTodo.cards.democards.complex;
+package <%= modIdCamel %>.cards.democards.complex;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.optionCards.BecomeAlmighty;
@@ -7,14 +7,14 @@ import com.megacrit.cardcrawl.cards.optionCards.LiveForever;
 import com.megacrit.cardcrawl.cards.tempCards.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theTodo.cards.AbstractEasyCard;
+import <%= modIdCamel %>.cards.AbstractEasyCard;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static theTodo.TodoMod.makeID;
-import static theTodo.util.Wiz.getRandomItem;
-import static theTodo.util.Wiz.makeInHand;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
+import static <%= modIdCamel %>.util.Wiz.getRandomItem;
+import static <%= modIdCamel %>.util.Wiz.makeInHand;
 
 public class MultiPreviewDemoCard extends AbstractEasyCard {
 

@@ -1,4 +1,4 @@
-package theTodo.cards;
+package <%= modIdCamel %>.cards;
 
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.Gdx;
@@ -15,14 +15,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theTodo.TheTodo;
-import theTodo.util.CardArtRoller;
+import <%= modIdCamel %>.TheTodo;
+import <%= modIdCamel %>.util.CardArtRoller;
 
 import java.util.ArrayList;
 
-import static theTodo.TodoMod.*;
-import static theTodo.util.Wiz.atb;
-import static theTodo.util.Wiz.att;
+import static <%= modIdCamel %>.<%= modIdPascal %>.*;
+import static <%= modIdCamel %>.util.Wiz.atb;
+import static <%= modIdCamel %>.util.Wiz.att;
 
 public abstract class AbstractEasyCard extends CustomCard {
 

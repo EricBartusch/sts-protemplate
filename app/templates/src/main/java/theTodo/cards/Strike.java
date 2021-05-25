@@ -1,10 +1,10 @@
-package theTodo.cards;
+package <%= modIdCamel %>.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static theTodo.TodoMod.makeID;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
 
 public class Strike extends AbstractEasyCard {
     public final static String ID = makeID("Strike");

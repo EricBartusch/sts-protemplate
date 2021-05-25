@@ -1,4 +1,4 @@
-package <%= modIdCamal %>.actions;
+package <%= modIdCamel %>.actions;
 
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;

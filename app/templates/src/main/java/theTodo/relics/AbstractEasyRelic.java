@@ -1,12 +1,12 @@
-package theTodo.relics;
+package <%= modIdCamel %>.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import theTodo.util.TexLoader;
+import <%= modIdCamel %>.util.TexLoader;
 
-import static theTodo.TodoMod.makeRelicPath;
-import static theTodo.TodoMod.modID;
+import static <%= modIdCamel %>.TodoMod.makeRelicPath;
+import static <%= modIdCamel %>.TodoMod.modID;
 
 public abstract class AbstractEasyRelic extends CustomRelic {
     public AbstractCard.CardColor color;

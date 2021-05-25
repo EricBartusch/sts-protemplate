@@ -1,4 +1,4 @@
-package theTodo.powers;
+package <%= modIdCamel %>.powers;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

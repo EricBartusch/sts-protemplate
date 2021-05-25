@@ -1,12 +1,12 @@
-package theTodo.cards.democards.complex;
+package <%= modIdCamel %>.cards.democards.complex;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ThornsPower;
-import theTodo.cards.AbstractEasyCard;
+import <%= modIdCamel %>.cards.AbstractEasyCard;
 
-import static theTodo.TodoMod.makeID;
-import static theTodo.util.Wiz.applyToSelfNextTurn;
+import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
+import static <%= modIdCamel %>.util.Wiz.applyToSelfNextTurn;
 
 public class NextTurnPowerDemo extends AbstractEasyCard {
 

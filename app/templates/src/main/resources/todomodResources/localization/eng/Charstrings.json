@@ -1,9 +1,6 @@
 {
-  "${ModID}:TheTodo": {
-    "NAMES": [
-      "The Todo",
-      "the Todo"
-    ],
+  "${ModID}:<%= modIdPascal %>": {
+    "NAMES": ["The Todo", "the Todo"],
     "TEXT": [
       "An unfinished creation, waiting for an expert to fill the canvas.",
       "NL TODO: Change this text",
