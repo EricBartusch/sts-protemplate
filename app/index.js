@@ -28,14 +28,25 @@ module.exports = class extends Generator {
   writing() {
     // The big two
     this.fs.copyTpl(
-      this.templatePath(`src/main/java/theTodo/*`),
-      this.destinationPath(`output/src/main/java/${this.modIdCamel}/`),
+      this.templatePath(`src/main/java/theTodo/TheTodo.java`),
+      this.destinationPath(
+        `output/src/main/java/${this.modIdCamel}/TheTodo.java`
+      ),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel
-      },
-      null,
-      { globOptions: { dot: true } }
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath(`src/main/java/theTodo/TodoMod.java`),
+      this.destinationPath(
+        `output/src/main/java/${this.modIdCamel}/${this.answers.modIdPascal}.java`
+      ),
+      {
+        modIdPascal: this.answers.modIdPascal,
+        modIdCamel: this.modIdCamel
+      }
     );
 
     // Pom
