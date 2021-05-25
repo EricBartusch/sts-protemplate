@@ -31,7 +31,7 @@ public class <%= modIdPascal %> implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber {
 
-    public static final String modID = "<%= modIdPascal %>";
+    public static final String modID = "<%= modIdLower %>";
 
     public static String makeID(String idText) {
         return modID + ":" + idText;

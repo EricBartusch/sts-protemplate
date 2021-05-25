@@ -45,7 +45,8 @@ module.exports = class extends Generator {
       ),
       {
         modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel
+        modIdCamel: this.modIdCamel,
+        modIdLower: this.answers.modIdPascal.toLowerCase()
       }
     );
 
