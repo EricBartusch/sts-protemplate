@@ -18,7 +18,8 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "steamPath",
-        message: "Where is steam installed? (ex. E:\\Games\\Steam\\steamapps)",
+        message:
+          "Where is steam installed? If blank, will default to: C:\\Program Files (x86)\\Steam\\steamapps",
         default: "C:\\Program Files (x86)\\Steam\\steamapps"
       }
     ]);
@@ -29,9 +30,7 @@ module.exports = class extends Generator {
     // The big two
     this.fs.copyTpl(
       this.templatePath(`src/main/java/theTodo/TheTodo.java`),
-      this.destinationPath(
-        `output/src/main/java/${this.modIdCamel}/TheTodo.java`
-      ),
+      this.destinationPath(`src/main/java/${this.modIdCamel}/TheTodo.java`),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel
@@ -41,7 +40,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath(`src/main/java/theTodo/TodoMod.java`),
       this.destinationPath(
-        `output/src/main/java/${this.modIdCamel}/${this.answers.modIdPascal}.java`
+        `src/main/java/${this.modIdCamel}/${this.answers.modIdPascal}.java`
       ),
       {
         modIdPascal: this.answers.modIdPascal,
@@ -53,7 +52,7 @@ module.exports = class extends Generator {
     // Pom
     this.fs.copyTpl(
       this.templatePath("pom.xml"),
-      this.destinationPath("output/pom.xml"),
+      this.destinationPath("pom.xml"),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel,
@@ -68,7 +67,7 @@ module.exports = class extends Generator {
     // Actions
     this.fs.copyTpl(
       this.templatePath(`src/main/java/theTodo/actions/*`),
-      this.destinationPath(`output/src/main/java/${this.modIdCamel}/actions/`),
+      this.destinationPath(`src/main/java/${this.modIdCamel}/actions/`),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel
@@ -80,7 +79,7 @@ module.exports = class extends Generator {
     // Cardmods
     this.fs.copyTpl(
       this.templatePath(`src/main/java/theTodo/cardmods/*`),
-      this.destinationPath(`output/src/main/java/${this.modIdCamel}/cardmods/`),
+      this.destinationPath(`src/main/java/${this.modIdCamel}/cardmods/`),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel
@@ -92,7 +91,7 @@ module.exports = class extends Generator {
     // Cards
     this.fs.copyTpl(
       this.templatePath(`src/main/java/theTodo/cards/**/*`),
-      this.destinationPath(`output/src/main/java/${this.modIdCamel}/cards/`),
+      this.destinationPath(`src/main/java/${this.modIdCamel}/cards/`),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel
@@ -104,7 +103,7 @@ module.exports = class extends Generator {
     // Powers
     this.fs.copyTpl(
       this.templatePath(`src/main/java/theTodo/powers/*`),
-      this.destinationPath(`output/src/main/java/${this.modIdCamel}/powers/`),
+      this.destinationPath(`src/main/java/${this.modIdCamel}/powers/`),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel
@@ -116,7 +115,7 @@ module.exports = class extends Generator {
     // Relics
     this.fs.copyTpl(
       this.templatePath(`src/main/java/theTodo/relics/*`),
-      this.destinationPath(`output/src/main/java/${this.modIdCamel}/relics/`),
+      this.destinationPath(`src/main/java/${this.modIdCamel}/relics/`),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel
@@ -128,7 +127,7 @@ module.exports = class extends Generator {
     // Util
     this.fs.copyTpl(
       this.templatePath(`src/main/java/theTodo/util/*`),
-      this.destinationPath(`output/src/main/java/${this.modIdCamel}/util/`),
+      this.destinationPath(`src/main/java/${this.modIdCamel}/util/`),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel
@@ -141,7 +140,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath(`src/main/resources/todomodResources/**/*`),
       this.destinationPath(
-        `output/src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/`
+        `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/`
       ),
       {
         modIdPascal: this.answers.modIdPascal,
@@ -153,7 +152,7 @@ module.exports = class extends Generator {
 
     this.fs.copyTpl(
       this.templatePath(`src/main/resources/ModTheSpire.json`),
-      this.destinationPath(`output/src/main/resources/ModTheSpire.json`),
+      this.destinationPath(`src/main/resources/ModTheSpire.json`),
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel
@@ -172,12 +171,3 @@ function toCamelCase(modId) {
 
   return modId;
 }
-
-/*
-Modid
-modName - camal
-ModName - pascal
-description
-steam path
-
-*/
