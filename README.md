@@ -12,3 +12,4 @@ Yeoman generator for starting up new Slay the Spire mods
 ## Future TODOs
 * Choose what parts to include (e.g. only relics, or cards and events)
 * Include Intellij (and other?) files so debugging is available without additional setup 
+* Change repo and yeoman to be `sts-protemplate`. Current one is redundant.
