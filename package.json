@@ -9,7 +9,7 @@
     "url": "https://github.com/EricBartusch"
   },
   "files": [
-    "generators"
+    "app"
   ],
   "main": "generators/index.js",
   "keywords": [
