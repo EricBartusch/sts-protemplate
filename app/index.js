@@ -6,7 +6,7 @@ const yosay = require("yosay");
 module.exports = class extends Generator {
   async prompting() {
     this.log(
-      yosay(`Welcome to the ${chalk.red("StS-yo-protemplate")} generator!`)
+      yosay(`Welcome to the ${chalk.red("sts-protemplate")} generator!`)
     );
 
     this.answers = await this.prompt([
