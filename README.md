@@ -5,9 +5,9 @@ Yeoman generator for starting up new Slay the Spire mods
 ## How to use
 
 1. Install [yeoman](https://yeoman.io/learning/)
-2. Run `npm install -g generator-yo-sts-protemplate`
+2. Run `npm install -g generator-sts-protemplate`
 3. Navigate to your local git repo
-4. Run `yo yo-sts-protemplate` and follow prompts
+4. Run `yo sts-protemplate` and follow prompts
 
 ## Future TODOs
 * Choose what parts to include (e.g. only relics, or cards and events)
