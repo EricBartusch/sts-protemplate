@@ -21,6 +21,8 @@ Replace all:
 3. `<%= modIdLower %>` with your mod name in lowercase
 4. `<%= modIdSpaces %>` with your mod name With Spaces
 5. `<%= steamPath %>` with your steam path (e.g. C:\Program Files (x86)\Steam\steamapps)
+6. Change the folder name from `src\main\java\theTodo\` to `src\main\java\camelCaseModName`
+7. Change the name of `TodoMod.java` to `PascalModName.java`
 
 ## Future TODOs
 * Choose what parts to include (e.g. only relics, or cards and events)
