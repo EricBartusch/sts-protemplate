@@ -1,6 +1,7 @@
 
 # sts-protemplate
 Yeoman generator for starting up new Slay the Spire mods
+
 Note: If you're new to modding Slay the Spire, don't use this.
 Instead follow the guide [here](https://github.com/Gremious/StS-DefaultModBase/wiki)
 
