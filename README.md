@@ -14,6 +14,8 @@ Instead follow the guide [here](https://github.com/Gremious/StS-DefaultModBase/w
 
 ## Don't want to use yeoman? Try this:
 
+Download the .zip of [this branch](https://github.com/EricBartusch/sts-protemplate/tree/no-yeoman-please)
+
 Replace all:
 
 1. `<%= modIdPascal %>` with your mod name in PascalCase
@@ -25,5 +27,4 @@ Replace all:
 7. Change the name of `TodoMod.java` to `PascalModName.java`
 
 ## Future TODOs
-* Choose what parts to include (e.g. only relics, or cards and events)
 * Include Intellij (and other?) files so debugging is available without additional setup 
