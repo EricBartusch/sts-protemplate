@@ -191,6 +191,15 @@ module.exports = class extends Generator {
       this.fs.delete(
         `src/main/java/${this.modIdCamel}/util/CardArtRoller.java`
       );
+      this.fs.delete(
+        `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/localization/eng/Cardstrings.json`
+      );
+    }
+
+    if (!this.answers.createRelics) {
+      this.fs.delete(
+        `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/localization/eng/Relicstrings.json`
+      );
     }
 
     if (!this.answers.createCardMods) {

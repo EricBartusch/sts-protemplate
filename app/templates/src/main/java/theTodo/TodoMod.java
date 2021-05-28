@@ -80,17 +80,21 @@ public class <%= modIdPascal %> implements
         return modID + "Resources/images/" + resourcePath;
     }
 
+    <% if (createRelics) { %>
     public static String makeRelicPath(String resourcePath) {
         return modID + "Resources/images/relics/" + resourcePath;
     }
+    <% } %>
 
     public static String makePowerPath(String resourcePath) {
         return modID + "Resources/images/powers/" + resourcePath;
     }
 
+    <% if (createCards) { %>
     public static String makeCardPath(String resourcePath) {
         return modID + "Resources/images/cards/" + resourcePath;
     }
+    <% } %>
 
     public static void initialize() {
         <%= modIdPascal %> thismod = new <%= modIdPascal %>();
@@ -135,9 +139,13 @@ public class <%= modIdPascal %> implements
 
     @Override
     public void receiveEditStrings() {
+        <% if (createCards) { %>
         BaseMod.loadCustomStringsFile(CardStrings.class, modID + "Resources/localization/eng/Cardstrings.json");
+        <% } %>
 
+        <% if (createRelics) { %>
         BaseMod.loadCustomStringsFile(RelicStrings.class, modID + "Resources/localization/eng/Relicstrings.json");
+        <% } %>
 
         BaseMod.loadCustomStringsFile(CharacterStrings.class, modID + "Resources/localization/eng/Charstrings.json");
 
