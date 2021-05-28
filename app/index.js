@@ -31,6 +31,11 @@ module.exports = class extends Generator {
         type: "confirm",
         name: "createRelics",
         message: "Relics?"
+      },
+      {
+        type: "confirm",
+        name: "createCardMods",
+        message: "CardMods?"
       }
     ]);
 
@@ -93,16 +98,18 @@ module.exports = class extends Generator {
     );
 
     // Cardmods
-    this.fs.copyTpl(
-      this.templatePath(`src/main/java/theTodo/cardmods/*`),
-      this.destinationPath(`src/main/java/${this.modIdCamel}/cardmods/`),
-      {
-        modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel
-      },
-      null,
-      { globOptions: { dot: true } }
-    );
+    if (this.answers.createCardMods) {
+      this.fs.copyTpl(
+        this.templatePath(`src/main/java/theTodo/cardmods/*`),
+        this.destinationPath(`src/main/java/${this.modIdCamel}/cardmods/`),
+        {
+          modIdPascal: this.answers.modIdPascal,
+          modIdCamel: this.modIdCamel
+        },
+        null,
+        { globOptions: { dot: true } }
+      );
+    }
 
     // Cards
     if (this.answers.createCards) {
@@ -183,6 +190,15 @@ module.exports = class extends Generator {
     if (!this.answers.createCards) {
       this.fs.delete(
         `src/main/java/${this.modIdCamel}/util/CardArtRoller.java`
+      );
+    }
+
+    if (!this.answers.createCardMods) {
+      this.fs.delete(
+        `src/main/java/${this.modIdCamel}/cards/democards/complex/InlineCardModDemo.java`
+      );
+      this.fs.delete(
+        `src/main/java/${this.modIdCamel}/cards/democards/complex/SelectCardsPlusCardMods.java`
       );
     }
   }
