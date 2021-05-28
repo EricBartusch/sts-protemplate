@@ -16,6 +16,11 @@ module.exports = class extends Generator {
         message: "Mod ID PascalCase:"
       },
       {
+        type: "author",
+        name: "author",
+        message: "Who is making this?"
+      },
+      {
         type: "input",
         name: "steamPath",
         message:
@@ -54,6 +59,9 @@ module.exports = class extends Generator {
       }
     ]);
 
+    this.answers.modIdPascal =
+      this.answers.modIdPascal.charAt(0).toUpperCase() +
+      this.answers.modIdPascal.slice(1);
     this.modIdCamel = toCamelCase(this.answers.modIdPascal);
   }
 
@@ -207,7 +215,8 @@ module.exports = class extends Generator {
       this.destinationPath(`src/main/resources/ModTheSpire.json`),
       {
         modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel
+        modIdCamel: this.modIdCamel,
+        author: this.answers.author
       }
     );
 
