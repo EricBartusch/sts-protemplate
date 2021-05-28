@@ -46,6 +46,11 @@ module.exports = class extends Generator {
         type: "confirm",
         name: "createActions",
         message: "Actions?"
+      },
+      {
+        type: "confirm",
+        name: "createChar",
+        message: "New Character?"
       }
     ]);
 
@@ -65,21 +70,24 @@ module.exports = class extends Generator {
         modIdLower: this.answers.modIdPascal.toLowerCase(),
         createCards: this.answers.createCards,
         createRelics: this.answers.createRelics,
-        createPowers: this.answers.createPowers
+        createPowers: this.answers.createPowers,
+        createChar: this.answers.createChar
       }
     );
 
     // Custom Character
-    this.fs.copyTpl(
-      this.templatePath(`src/main/java/theTodo/TheTodo.java`),
-      this.destinationPath(`src/main/java/${this.modIdCamel}/TheTodo.java`),
-      {
-        modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel,
-        createCards: this.answers.createCards,
-        createRelics: this.answers.createRelics
-      }
-    );
+    if (this.answers.createChar) {
+      this.fs.copyTpl(
+        this.templatePath(`src/main/java/theTodo/TheTodo.java`),
+        this.destinationPath(`src/main/java/${this.modIdCamel}/TheTodo.java`),
+        {
+          modIdPascal: this.answers.modIdPascal,
+          modIdCamel: this.modIdCamel,
+          createCards: this.answers.createCards,
+          createRelics: this.answers.createRelics
+        }
+      );
+    }
 
     // Pom
     this.fs.copyTpl(
@@ -231,6 +239,15 @@ module.exports = class extends Generator {
     if (!this.answers.createPowers) {
       this.fs.delete(
         `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/localization/eng/Powerstrings.json`
+      );
+    }
+
+    if (!this.answers.createChar) {
+      this.fs.delete(
+        `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/images`
+      );
+      this.fs.delete(
+        `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/localization/eng/Charstrings.json`
       );
     }
   }

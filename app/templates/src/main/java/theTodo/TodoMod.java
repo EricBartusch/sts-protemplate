@@ -36,8 +36,8 @@ public class <%= modIdPascal %> implements
         EditRelicsSubscriber,
         <% } %>
         EditStringsSubscriber,
-        EditKeywordsSubscriber,
-        EditCharactersSubscriber {
+        EditKeywordsSubscriber<% if (createChar) { %>,
+        EditCharactersSubscriber<% } %> {
 
     public static final String modID = "<%= modIdLower %>";
 
@@ -45,6 +45,7 @@ public class <%= modIdPascal %> implements
         return modID + ":" + idText;
     }
 
+    <% if (createChar) { %>
     public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
 
     public static final String SHOULDER1 = modID + "Resources/images/char/mainChar/shoulder.png";
@@ -61,15 +62,18 @@ public class <%= modIdPascal %> implements
     private static final String CARD_ENERGY_L = modID + "Resources/images/1024/energy.png";
     private static final String CHARSELECT_BUTTON = modID + "Resources/images/charSelect/charButton.png";
     private static final String CHARSELECT_PORTRAIT = modID + "Resources/images/charSelect/charBG.png";
+    <% } %>
 
     public <%= modIdPascal %>() {
         BaseMod.subscribe(this);
 
+        <% if (createChar) { %>
         BaseMod.addColor(TheTodo.Enums.TODO_COLOR, characterColor, characterColor, characterColor,
                 characterColor, characterColor, characterColor, characterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
+        <% } %>
     }
 
     public static String makePath(String resourcePath) {
@@ -102,11 +106,13 @@ public class <%= modIdPascal %> implements
         <%= modIdPascal %> thismod = new <%= modIdPascal %>();
     }
 
+    <% if (createChar) { %>
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new TheTodo(TheTodo.characterStrings.NAMES[1], TheTodo.Enums.THE_TODO),
                 CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheTodo.Enums.THE_TODO);
     }
+    <% } %>
 
     <% if (createRelics) { %>
     @Override
@@ -149,7 +155,9 @@ public class <%= modIdPascal %> implements
         BaseMod.loadCustomStringsFile(RelicStrings.class, modID + "Resources/localization/eng/Relicstrings.json");
         <% } %>
 
+        <% if (createChar) { %>
         BaseMod.loadCustomStringsFile(CharacterStrings.class, modID + "Resources/localization/eng/Charstrings.json");
+        <% } %>
 
         <% if (createPowers) { %>
         BaseMod.loadCustomStringsFile(PowerStrings.class, modID + "Resources/localization/eng/Powerstrings.json");
