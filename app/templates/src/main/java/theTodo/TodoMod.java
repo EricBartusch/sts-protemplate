@@ -86,9 +86,11 @@ public class <%= modIdPascal %> implements
     }
     <% } %>
 
+    <% if (createPowers) { %>
     public static String makePowerPath(String resourcePath) {
         return modID + "Resources/images/powers/" + resourcePath;
     }
+    <% } %>
 
     <% if (createCards) { %>
     public static String makeCardPath(String resourcePath) {
@@ -149,7 +151,10 @@ public class <%= modIdPascal %> implements
 
         BaseMod.loadCustomStringsFile(CharacterStrings.class, modID + "Resources/localization/eng/Charstrings.json");
 
+        <% if (createPowers) { %>
         BaseMod.loadCustomStringsFile(PowerStrings.class, modID + "Resources/localization/eng/Powerstrings.json");
+        <% } %>
+
     }
 
     @Override

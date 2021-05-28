@@ -36,6 +36,16 @@ module.exports = class extends Generator {
         type: "confirm",
         name: "createCardMods",
         message: "CardMods?"
+      },
+      {
+        type: "confirm",
+        name: "createPowers",
+        message: "Powers?"
+      },
+      {
+        type: "confirm",
+        name: "createActions",
+        message: "Actions?"
       }
     ]);
 
@@ -54,7 +64,8 @@ module.exports = class extends Generator {
         modIdCamel: this.modIdCamel,
         modIdLower: this.answers.modIdPascal.toLowerCase(),
         createCards: this.answers.createCards,
-        createRelics: this.answers.createRelics
+        createRelics: this.answers.createRelics,
+        createPowers: this.answers.createPowers
       }
     );
 
@@ -86,16 +97,18 @@ module.exports = class extends Generator {
     );
 
     // Actions
-    this.fs.copyTpl(
-      this.templatePath(`src/main/java/theTodo/actions/*`),
-      this.destinationPath(`src/main/java/${this.modIdCamel}/actions/`),
-      {
-        modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel
-      },
-      null,
-      { globOptions: { dot: true } }
-    );
+    if (this.answers.createActions) {
+      this.fs.copyTpl(
+        this.templatePath(`src/main/java/theTodo/actions/*`),
+        this.destinationPath(`src/main/java/${this.modIdCamel}/actions/`),
+        {
+          modIdPascal: this.answers.modIdPascal,
+          modIdCamel: this.modIdCamel
+        },
+        null,
+        { globOptions: { dot: true } }
+      );
+    }
 
     // Cardmods
     if (this.answers.createCardMods) {
@@ -126,16 +139,18 @@ module.exports = class extends Generator {
     }
 
     // Powers
-    this.fs.copyTpl(
-      this.templatePath(`src/main/java/theTodo/powers/*`),
-      this.destinationPath(`src/main/java/${this.modIdCamel}/powers/`),
-      {
-        modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel
-      },
-      null,
-      { globOptions: { dot: true } }
-    );
+    if (this.answers.createPowers) {
+      this.fs.copyTpl(
+        this.templatePath(`src/main/java/theTodo/powers/*`),
+        this.destinationPath(`src/main/java/${this.modIdCamel}/powers/`),
+        {
+          modIdPascal: this.answers.modIdPascal,
+          modIdCamel: this.modIdCamel
+        },
+        null,
+        { globOptions: { dot: true } }
+      );
+    }
 
     // Relics
     if (this.answers.createRelics) {
@@ -157,7 +172,9 @@ module.exports = class extends Generator {
       this.destinationPath(`src/main/java/${this.modIdCamel}/util/`),
       {
         modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel
+        modIdCamel: this.modIdCamel,
+        createPowers: this.answers.createPowers,
+        createActions: this.answers.createActions
       },
       null,
       { globOptions: { dot: true } }
@@ -208,6 +225,12 @@ module.exports = class extends Generator {
       );
       this.fs.delete(
         `src/main/java/${this.modIdCamel}/cards/democards/complex/SelectCardsPlusCardMods.java`
+      );
+    }
+
+    if (!this.answers.createPowers) {
+      this.fs.delete(
+        `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/localization/eng/Powerstrings.json`
       );
     }
   }

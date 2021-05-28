@@ -17,9 +17,13 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+<% if (createActions) { %>
 import <%= modIdCamel %>.actions.TimedVFXAction;
+<% } %>
+<% if (createPowers) { %>
 import <%= modIdCamel %>.powers.LosePowerPower;
 import <%= modIdCamel %>.powers.NextTurnPowerPower;
+<% } %>
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -131,7 +135,9 @@ public class Wiz {
     }
 
     public static void tfx(AbstractGameEffect gameEffect) {
+        <% if (createActions) { %>
         atb(new TimedVFXAction(gameEffect));
+        <% } %>
     }
 
     public static void makeInHand(AbstractCard c, int i) {
@@ -176,10 +182,14 @@ public class Wiz {
 
     public static void applyToSelfTemp(AbstractPower po) {
         atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, po, po.amount));
+        <% if (createPowers) { %>
         atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LosePowerPower(AbstractDungeon.player, po, po.amount)));
+        <% } %>
     }
 
     public static void applyToSelfNextTurn(AbstractPower po) {
+        <% if (createPowers) { %>
         atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new NextTurnPowerPower(AbstractDungeon.player, po)));
+        <% } %>
     }
 }
