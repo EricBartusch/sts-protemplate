@@ -18,9 +18,16 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+<% if (createCards) { %>
 import <%= modIdCamel %>.cards.Defend;
 import <%= modIdCamel %>.cards.Strike;
-import <%= modIdCamel %>.relics.TodoItem;
+<% } else { %>
+import com.megacrit.cardcrawl.cards.red.Strike_Red;
+import com.megacrit.cardcrawl.cards.red.Defend_Red;
+<% } %>
+<% if (createRelics) { %>
+import <%= modIdCamel %>.relics.AbstractEasyRelic;
+<% } %>
 
 import java.util.ArrayList;
 
@@ -71,17 +78,27 @@ public class TheTodo extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
+            <% if (createCards) { %>
             retVal.add(Strike.ID);
+            <% } else { %>
+            retVal.add(Strike_Red.ID);
+            <% } %>
+
         }
         for (int i = 0; i < 4; i++) {
+            <% if (createCards) { %>
             retVal.add(Defend.ID);
-        }
+            <% } else { %>
+            retVal.add(Defend_Red.ID);
+            <% } %>        }
         return retVal;
     }
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
+        <% if (createRelics) { %>
         retVal.add(TodoItem.ID);
+        <% } %>
         return retVal;
     }
 
