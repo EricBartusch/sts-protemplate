@@ -15,14 +15,14 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-
 <% if (createCards) { %>
 import <%= modIdCamel %>.cards.AbstractEasyCard;
 import <%= modIdCamel %>.cards.cardvars.SecondDamage;
 import <%= modIdCamel %>.cards.cardvars.SecondMagicNumber;
 <% } %>
-
+<% if (createRelics) { %>
 import <%= modIdCamel %>.relics.AbstractEasyRelic;
+<% } %>
 
 import java.nio.charset.StandardCharsets;
 
@@ -32,7 +32,9 @@ public class <%= modIdPascal %> implements
         <% if (createCards) { %>
         EditCardsSubscriber,
         <% } %>
+        <% if (createRelics) { %>
         EditRelicsSubscriber,
+        <% } %>
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber {
@@ -100,6 +102,7 @@ public class <%= modIdPascal %> implements
                 CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheTodo.Enums.THE_TODO);
     }
 
+    <% if (createRelics) { %>
     @Override
     public void receiveEditRelics() {
         new AutoAdd(modID)
@@ -115,6 +118,7 @@ public class <%= modIdPascal %> implements
                     }
                 });
     }
+    <% } %>
 
     <% if (createCards) { %>
     @Override

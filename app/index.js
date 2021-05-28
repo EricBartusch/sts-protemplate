@@ -26,6 +26,11 @@ module.exports = class extends Generator {
         type: "confirm",
         name: "createCards",
         message: "Are you making new cards?"
+      },
+      {
+        type: "confirm",
+        name: "createRelics",
+        message: "Relics?"
       }
     ]);
 
@@ -43,7 +48,8 @@ module.exports = class extends Generator {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel,
         modIdLower: this.answers.modIdPascal.toLowerCase(),
-        createCards: this.answers.createCards
+        createCards: this.answers.createCards,
+        createRelics: this.answers.createRelics
       }
     );
 
@@ -54,7 +60,8 @@ module.exports = class extends Generator {
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel,
-        createCards: this.answers.createCards
+        createCards: this.answers.createCards,
+        createRelics: this.answers.createRelics
       }
     );
 
@@ -124,16 +131,18 @@ module.exports = class extends Generator {
     );
 
     // Relics
-    this.fs.copyTpl(
-      this.templatePath(`src/main/java/theTodo/relics/*`),
-      this.destinationPath(`src/main/java/${this.modIdCamel}/relics/`),
-      {
-        modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel
-      },
-      null,
-      { globOptions: { dot: true } }
-    );
+    if (this.answers.createRelics) {
+      this.fs.copyTpl(
+        this.templatePath(`src/main/java/theTodo/relics/*`),
+        this.destinationPath(`src/main/java/${this.modIdCamel}/relics/`),
+        {
+          modIdPascal: this.answers.modIdPascal,
+          modIdCamel: this.modIdCamel
+        },
+        null,
+        { globOptions: { dot: true } }
+      );
+    }
 
     // Util
     this.fs.copyTpl(
