@@ -21,22 +21,19 @@ module.exports = class extends Generator {
         message:
           "Where is steam installed? If blank, will default to: C:\\Program Files (x86)\\Steam\\steamapps",
         default: "C:\\Program Files (x86)\\Steam\\steamapps"
+      },
+      {
+        type: "confirm",
+        name: "createCards",
+        message: "Are you making new cards?"
       }
     ]);
+
     this.modIdCamel = toCamelCase(this.answers.modIdPascal);
   }
 
   writing() {
-    // The big two
-    this.fs.copyTpl(
-      this.templatePath(`src/main/java/theTodo/TheTodo.java`),
-      this.destinationPath(`src/main/java/${this.modIdCamel}/TheTodo.java`),
-      {
-        modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel
-      }
-    );
-
+    // Entrypoint
     this.fs.copyTpl(
       this.templatePath(`src/main/java/theTodo/TodoMod.java`),
       this.destinationPath(
@@ -45,7 +42,19 @@ module.exports = class extends Generator {
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel,
-        modIdLower: this.answers.modIdPascal.toLowerCase()
+        modIdLower: this.answers.modIdPascal.toLowerCase(),
+        createCards: this.answers.createCards
+      }
+    );
+
+    // Custom Character
+    this.fs.copyTpl(
+      this.templatePath(`src/main/java/theTodo/TheTodo.java`),
+      this.destinationPath(`src/main/java/${this.modIdCamel}/TheTodo.java`),
+      {
+        modIdPascal: this.answers.modIdPascal,
+        modIdCamel: this.modIdCamel,
+        createCards: this.answers.createCards
       }
     );
 
@@ -89,16 +98,18 @@ module.exports = class extends Generator {
     );
 
     // Cards
-    this.fs.copyTpl(
-      this.templatePath(`src/main/java/theTodo/cards/**/*`),
-      this.destinationPath(`src/main/java/${this.modIdCamel}/cards/`),
-      {
-        modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel
-      },
-      null,
-      { globOptions: { dot: true } }
-    );
+    if (this.answers.createCards) {
+      this.fs.copyTpl(
+        this.templatePath(`src/main/java/theTodo/cards/**/*`),
+        this.destinationPath(`src/main/java/${this.modIdCamel}/cards/`),
+        {
+          modIdPascal: this.answers.modIdPascal,
+          modIdCamel: this.modIdCamel
+        },
+        null,
+        { globOptions: { dot: true } }
+      );
+    }
 
     // Powers
     this.fs.copyTpl(
@@ -158,6 +169,13 @@ module.exports = class extends Generator {
         modIdCamel: this.modIdCamel
       }
     );
+
+    // Delete unused stuff
+    if (!this.answers.createCards) {
+      this.fs.delete(
+        `src/main/java/${this.modIdCamel}/util/CardArtRoller.java`
+      );
+    }
   }
 };
 

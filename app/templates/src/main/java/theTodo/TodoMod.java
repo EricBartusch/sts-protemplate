@@ -15,9 +15,13 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+
+<% if (createCards) { %>
 import <%= modIdCamel %>.cards.AbstractEasyCard;
 import <%= modIdCamel %>.cards.cardvars.SecondDamage;
 import <%= modIdCamel %>.cards.cardvars.SecondMagicNumber;
+<% } %>
+
 import <%= modIdCamel %>.relics.AbstractEasyRelic;
 
 import java.nio.charset.StandardCharsets;
@@ -25,7 +29,9 @@ import java.nio.charset.StandardCharsets;
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
 public class <%= modIdPascal %> implements
+        <% if (createCards) { %>
         EditCardsSubscriber,
+        <% } %>
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
@@ -110,6 +116,7 @@ public class <%= modIdPascal %> implements
                 });
     }
 
+    <% if (createCards) { %>
     @Override
     public void receiveEditCards() {
         BaseMod.addDynamicVariable(new SecondMagicNumber());
@@ -119,6 +126,7 @@ public class <%= modIdPascal %> implements
                 .setDefaultSeen(true)
                 .cards();
     }
+    <% } %>
 
 
     @Override
