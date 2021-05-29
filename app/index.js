@@ -6,14 +6,25 @@ const yosay = require("yosay");
 module.exports = class extends Generator {
   async prompting() {
     this.log(
-      yosay(`Welcome to the ${chalk.red("sts-protemplate")} generator!`)
+      yosay(
+        `Welcome to the ${chalk.red("sts")}${chalk.green("-pro")}${chalk.blue(
+          "tem"
+        )}${chalk.magenta("plate")} generator!`
+      )
     );
 
     this.answers = await this.prompt([
       {
         type: "input",
         name: "modIdPascal",
-        message: "Mod ID PascalCase:"
+        message: "Mod ID PascalCase:",
+        validate: function(input) {
+          if (input === "") {
+            return "Your mod ID can't be blank.";
+          }
+
+          return true;
+        }
       },
       {
         type: "author",
@@ -26,38 +37,39 @@ module.exports = class extends Generator {
         message:
           "Where is steam installed? If blank, will default to: C:\\Program Files (x86)\\Steam\\steamapps",
         default: "C:\\Program Files (x86)\\Steam\\steamapps"
-      },
-      {
-        type: "confirm",
-        name: "createCards",
-        message: "Are you making new cards?"
-      },
-      {
-        type: "confirm",
-        name: "createRelics",
-        message: "Relics?"
-      },
-      {
-        type: "confirm",
-        name: "createCardMods",
-        message: "CardMods?"
-      },
-      {
-        type: "confirm",
-        name: "createPowers",
-        message: "Powers?"
-      },
-      {
-        type: "confirm",
-        name: "createActions",
-        message: "Actions?"
-      },
-      {
-        type: "confirm",
-        name: "createChar",
-        message: "New Character?"
       }
     ]);
+
+    this.templateChoices = await this.prompt({
+      type: "checkbox",
+      name: "options",
+      message: "What parts do you want to generate?",
+      choices: ["Cards", "Relics", "CardMods", "Powers", "Actions", "Character"]
+    });
+
+    // Go through the list of picked options and set each create option
+    this.customizations = {};
+    Object.assign(
+      this.customizations,
+      this.templateChoices.options.includes("Cards") && {
+        createCards: true
+      },
+      this.templateChoices.options.includes("Relics") && {
+        createRelics: true
+      },
+      this.templateChoices.options.includes("CardMods") && {
+        createCardMods: true
+      },
+      this.templateChoices.options.includes("Powers") && {
+        createPowers: true
+      },
+      this.templateChoices.options.includes("Actions") && {
+        createActions: true
+      },
+      this.templateChoices.options.includes("Character") && {
+        createChar: true
+      }
+    );
 
     this.answers.modIdPascal =
       this.answers.modIdPascal.charAt(0).toUpperCase() +
@@ -76,23 +88,23 @@ module.exports = class extends Generator {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel,
         modIdLower: this.answers.modIdPascal.toLowerCase(),
-        createCards: this.answers.createCards,
-        createRelics: this.answers.createRelics,
-        createPowers: this.answers.createPowers,
-        createChar: this.answers.createChar
+        createCards: this.customizations.createCards,
+        createRelics: this.customizations.createRelics,
+        createPowers: this.customizations.createPowers,
+        createChar: this.customizations.createChar
       }
     );
 
     // Custom Character
-    if (this.answers.createChar) {
+    if (this.customizations.createChar) {
       this.fs.copyTpl(
         this.templatePath(`src/main/java/theTodo/TheTodo.java`),
         this.destinationPath(`src/main/java/${this.modIdCamel}/TheTodo.java`),
         {
           modIdPascal: this.answers.modIdPascal,
           modIdCamel: this.modIdCamel,
-          createCards: this.answers.createCards,
-          createRelics: this.answers.createRelics
+          createCards: this.customizations.createCards,
+          createRelics: this.customizations.createRelics
         }
       );
     }
@@ -113,7 +125,7 @@ module.exports = class extends Generator {
     );
 
     // Actions
-    if (this.answers.createActions) {
+    if (this.customizations.createActions) {
       this.fs.copyTpl(
         this.templatePath(`src/main/java/theTodo/actions/*`),
         this.destinationPath(`src/main/java/${this.modIdCamel}/actions/`),
@@ -127,7 +139,7 @@ module.exports = class extends Generator {
     }
 
     // Cardmods
-    if (this.answers.createCardMods) {
+    if (this.customizations.createCardMods) {
       this.fs.copyTpl(
         this.templatePath(`src/main/java/theTodo/cardmods/*`),
         this.destinationPath(`src/main/java/${this.modIdCamel}/cardmods/`),
@@ -141,7 +153,7 @@ module.exports = class extends Generator {
     }
 
     // Cards
-    if (this.answers.createCards) {
+    if (this.customizations.createCards) {
       this.fs.copyTpl(
         this.templatePath(`src/main/java/theTodo/cards/**/*`),
         this.destinationPath(`src/main/java/${this.modIdCamel}/cards/`),
@@ -155,7 +167,7 @@ module.exports = class extends Generator {
     }
 
     // Powers
-    if (this.answers.createPowers) {
+    if (this.customizations.createPowers) {
       this.fs.copyTpl(
         this.templatePath(`src/main/java/theTodo/powers/*`),
         this.destinationPath(`src/main/java/${this.modIdCamel}/powers/`),
@@ -169,7 +181,7 @@ module.exports = class extends Generator {
     }
 
     // Relics
-    if (this.answers.createRelics) {
+    if (this.customizations.createRelics) {
       this.fs.copyTpl(
         this.templatePath(`src/main/java/theTodo/relics/*`),
         this.destinationPath(`src/main/java/${this.modIdCamel}/relics/`),
@@ -189,8 +201,8 @@ module.exports = class extends Generator {
       {
         modIdPascal: this.answers.modIdPascal,
         modIdCamel: this.modIdCamel,
-        createPowers: this.answers.createPowers,
-        createActions: this.answers.createActions
+        createPowers: this.customizations.createPowers,
+        createActions: this.customizations.createActions
       },
       null,
       { globOptions: { dot: true } }
@@ -221,7 +233,7 @@ module.exports = class extends Generator {
     );
 
     // Delete unused stuff
-    if (!this.answers.createCards) {
+    if (!this.customizations.createCards) {
       this.fs.delete(
         `src/main/java/${this.modIdCamel}/util/CardArtRoller.java`
       );
@@ -230,13 +242,13 @@ module.exports = class extends Generator {
       );
     }
 
-    if (!this.answers.createRelics) {
+    if (!this.customizations.createRelics) {
       this.fs.delete(
         `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/localization/eng/Relicstrings.json`
       );
     }
 
-    if (!this.answers.createCardMods) {
+    if (!this.customizations.createCardMods) {
       this.fs.delete(
         `src/main/java/${this.modIdCamel}/cards/democards/complex/InlineCardModDemo.java`
       );
@@ -245,13 +257,13 @@ module.exports = class extends Generator {
       );
     }
 
-    if (!this.answers.createPowers) {
+    if (!this.customizations.createPowers) {
       this.fs.delete(
         `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/localization/eng/Powerstrings.json`
       );
     }
 
-    if (!this.answers.createChar) {
+    if (!this.customizations.createChar) {
       this.fs.delete(
         `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/images`
       );
