@@ -58,40 +58,22 @@ module.exports = class extends Generator {
 
     if (!this.makeAll.makeAll && !this.makeEmpty.makeEmpty) {
       this.log(yosay(`Alright then let's choose which parts to generate.`));
-      this.customizations = await this.prompt([
-        {
-          type: "confirm",
-          name: "createCards",
-          message: "Are you making new cards?"
-        },
-        {
-          type: "confirm",
-          name: "createRelics",
-          message: "Relics?"
-        },
-        {
-          type: "confirm",
-          name: "createCardMods",
-          message: "CardMods?"
-        },
-        {
-          type: "confirm",
-          name: "createPowers",
-          message: "Powers?"
-        },
-        {
-          type: "confirm",
-          name: "createActions",
-          message: "Actions?"
-        },
-        {
-          type: "confirm",
-          name: "createChar",
-          message: "New Character?"
-        }
-      ]);
+      this.templateChoices = await this.prompt({
+        type: "checkbox",
+        name: "options",
+        message: "What parts do you want to generate?",
+        choices: [
+          "Cards",
+          "Relics",
+          "CardMods",
+          "Powers",
+          "Actions",
+          "Character"
+        ]
+      });
     }
 
+    // If they chose to make everything
     if (this.makeAll.makeAll) {
       this.customizations = {
         createCards: true,
@@ -103,7 +85,8 @@ module.exports = class extends Generator {
       };
     }
 
-    if (this.makeEmpty.makeEmpty) {
+    // If they chose to make an empty template
+    else if (this.makeEmpty.makeEmpty) {
       this.customizations = {
         createCards: false,
         createRelics: false,
@@ -112,6 +95,30 @@ module.exports = class extends Generator {
         createActions: false,
         createChar: false
       };
+    }
+
+    // Go through the list of picked options and set each create option
+    else {
+      this.customizations = {};
+      Object.assign(
+        this.customizations,
+        this.templateChoices.options.includes("Cards") && { createCards: true },
+        this.templateChoices.options.includes("Relics") && {
+          createRelics: true
+        },
+        this.templateChoices.options.includes("CardMods") && {
+          createCardMods: true
+        },
+        this.templateChoices.options.includes("Powers") && {
+          createPowers: true
+        },
+        this.templateChoices.options.includes("Actions") && {
+          createActions: true
+        },
+        this.templateChoices.options.includes("Character") && {
+          createCHar: true
+        }
+      );
     }
 
     this.answers.modIdPascal =
