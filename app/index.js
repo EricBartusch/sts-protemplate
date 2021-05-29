@@ -116,7 +116,7 @@ module.exports = class extends Generator {
           createActions: true
         },
         this.templateChoices.options.includes("Character") && {
-          createCHar: true
+          createChar: true
         }
       );
     }
