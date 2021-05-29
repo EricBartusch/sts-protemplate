@@ -26,7 +26,7 @@ import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.cards.red.Defend_Red;
 <% } %>
 <% if (createRelics) { %>
-import <%= modIdCamel %>.relics.AbstractEasyRelic;
+import <%= modIdCamel %>.relics.TodoItem;
 <% } %>
 
 import java.util.ArrayList;
@@ -78,11 +78,11 @@ public class TheTodo extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            <% if (createCards) { %>
+            <%_ if (createCards) { _%>
             retVal.add(Strike.ID);
-            <% } else { %>
+            <%_ } else { _%>
             retVal.add(Strike_Red.ID);
-            <% } %>
+            <%_ } _%>
 
         }
         for (int i = 0; i < 4; i++) {
@@ -96,9 +96,9 @@ public class TheTodo extends CustomPlayer {
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        <% if (createRelics) { %>
+        <%_ if (createRelics) { _%>
         retVal.add(TodoItem.ID);
-        <% } %>
+        <%_ } _%>
         return retVal;
     }
 
