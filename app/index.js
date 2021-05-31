@@ -159,7 +159,8 @@ module.exports = class extends Generator {
         this.destinationPath(`src/main/java/${this.modIdCamel}/cards/`),
         {
           modIdPascal: this.answers.modIdPascal,
-          modIdCamel: this.modIdCamel
+          modIdCamel: this.modIdCamel,
+          createChar: this.customizations.createChar
         },
         null,
         { globOptions: { dot: true } }
@@ -187,7 +188,8 @@ module.exports = class extends Generator {
         this.destinationPath(`src/main/java/${this.modIdCamel}/relics/`),
         {
           modIdPascal: this.answers.modIdPascal,
-          modIdCamel: this.modIdCamel
+          modIdCamel: this.modIdCamel,
+          createChar: this.customizations.createChar
         },
         null,
         { globOptions: { dot: true } }
@@ -265,10 +267,25 @@ module.exports = class extends Generator {
 
     if (!this.customizations.createChar) {
       this.fs.delete(
-        `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/images`
+        `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/images/char`
+      );
+      this.fs.delete(
+        `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/images/charSelect`
       );
       this.fs.delete(
         `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/localization/eng/Charstrings.json`
+      );
+    }
+
+    if (!this.customizations.createActions) {
+      this.fs.delete(
+        `src/main/java/${this.modIdCamel}/cards/democards/complex/EasyModalChoiceDemo.java`
+      );
+      this.fs.delete(
+        `src/main/java/${this.modIdCamel}/cards/democards/complex/EasyXCostDemo.java`
+      );
+      this.fs.delete(
+        `src/main/java/${this.modIdCamel}/cards/democards/complex/InlinePowerDemo.java`
       );
     }
   }
