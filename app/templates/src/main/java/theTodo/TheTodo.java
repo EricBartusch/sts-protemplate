@@ -18,16 +18,16 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-<% if (createCards) { %>
+<%_ if (createCards) { _%>
 import <%= modIdCamel %>.cards.Defend;
 import <%= modIdCamel %>.cards.Strike;
-<% } else { %>
+<%_ } else { _%>
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.cards.red.Defend_Red;
-<% } %>
-<% if (createRelics) { %>
+<%_ } _%>
+<%_ if (createRelics) { _%>
 import <%= modIdCamel %>.relics.TodoItem;
-<% } %>
+<%_ } _%>
 
 import java.util.ArrayList;
 
