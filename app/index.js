@@ -79,7 +79,7 @@ module.exports = class extends Generator {
       this.characterName = await this.prompt({
         type: "input",
         name: "charName",
-        message: "What is the name of the character?",
+        message: "What is the name of the character (in PascalCase)?",
         default: "TheTodo"
       });
     } else {
@@ -151,6 +151,12 @@ module.exports = class extends Generator {
           .slice(1),
         steamPath: this.answers.steamPath
       }
+    );
+
+    // README
+    this.fs.copyTpl(
+      this.templatePath("README"),
+      this.destinationPath("README")
     );
 
     // Actions
