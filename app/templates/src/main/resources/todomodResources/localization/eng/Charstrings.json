@@ -1,6 +1,6 @@
 {
-  "${ModID}:TheTodo": {
-    "NAMES": ["The Todo", "the Todo"],
+  "${ModID}:<%= charName %>": {
+    "NAMES": ["<%= charStringsCapital %>", "<%= charStringsFirstLower %>"],
     "TEXT": [
       "An unfinished creation, waiting for an expert to fill the canvas.",
       "NL TODO: Change this text",
