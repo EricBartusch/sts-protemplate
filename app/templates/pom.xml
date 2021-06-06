@@ -6,8 +6,7 @@
     <artifactId><%= modIdPascal %></artifactId>
     <version>0.0.1</version>
     <name><%= modIdSpaces %></name>
-    <description>TODO: Change this description</description>
-    <!-- Change the above for mod information. -->
+    <description><%= description %></description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -16,7 +15,6 @@
         <ModTheSpire.version>3.18.2</ModTheSpire.version>
         <ModID><%= modIdLower %></ModID>
 
-        <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path><%= steamPath %></Steam.path>
 
     </properties>

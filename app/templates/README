@@ -8,9 +8,3 @@ It contains the basics of an empty character, as well as:
 - AbstractCard comes with secondary variable and secondary damage (me + Kio)
 - Automatic card recoloring (me + Mayhem)
 - Hopefully more! Let me know if there's something you'd want added!!
-
-Setup guide:
-1. Clone the project with Github, preferably downloading with Github Desktop to make it so IntelliJ integration is easy!
-2. Go into your pom.xml, and change the description
-3. In the modded character file, go to the Enums section at the bottom and change the PlayerClass and CardColor enums. They're also annotated with TODOs.
-4. Update this file!

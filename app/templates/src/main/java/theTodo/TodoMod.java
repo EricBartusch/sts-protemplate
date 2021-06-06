@@ -79,7 +79,7 @@ public class <%= modIdPascal %> implements
     public <%= modIdPascal %>() {
         BaseMod.subscribe(this);
         <%_ if (createChar) { _%>
-            BaseMod.addColor(<%= charName %>.Enums.TODO_COLOR, characterColor, characterColor, characterColor,
+            BaseMod.addColor(<%= charName %>.Enums.<%= charColor %>, characterColor, characterColor, characterColor,
                 characterColor, characterColor, characterColor, characterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
