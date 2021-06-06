@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class NextTurnPowerPower extends AbstractEasyPower {
     private AbstractPower powerToGain;
         /*
-    private static Texture arrow48 = TexLoader.getTexture("todomodResources/images/ui/arrow48.png");
-    private static Texture arrow128 = TexLoader.getTexture("todomodResources/images/ui/arrow128.png");
+    private static Texture arrow48 = TexLoader.getTexture("<%= modIdLower %>Resources/images/ui/arrow48.png");
+    private static Texture arrow128 = TexLoader.getTexture("<%= modIdLower %>Resources/images/ui/arrow128.png");
     public static HashMap<String, TextureAtlas.AtlasRegion> bufferHashMap48 = new HashMap<>();
     public static HashMap<String, TextureAtlas.AtlasRegion> bufferHashMap128 = new HashMap<>();
     */

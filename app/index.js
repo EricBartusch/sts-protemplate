@@ -204,7 +204,8 @@ module.exports = class extends Generator {
         this.destinationPath(`src/main/java/${this.modIdCamel}/powers/`),
         {
           modIdPascal: this.answers.modIdPascal,
-          modIdCamel: this.modIdCamel
+          modIdCamel: this.modIdCamel,
+          modIdLower: this.answers.modIdPascal.toLowerCase()
         },
         null,
         { globOptions: { dot: true } }
