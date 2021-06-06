@@ -79,7 +79,7 @@ public class <%= modIdPascal %> implements
     public <%= modIdPascal %>() {
         BaseMod.subscribe(this);
         <%_ if (createChar) { _%>
-            BaseMod.addColor(TheTodo.Enums.TODO_COLOR, characterColor, characterColor, characterColor,
+            BaseMod.addColor(<%= charName %>.Enums.TODO_COLOR, characterColor, characterColor, characterColor,
                 characterColor, characterColor, characterColor, characterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
@@ -120,8 +120,8 @@ public class <%= modIdPascal %> implements
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new TheTodo(TheTodo.characterStrings.NAMES[1], TheTodo.Enums.THE_TODO),
-                CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheTodo.Enums.THE_TODO);
+        BaseMod.addCharacter(new <%= charName %>(<%= charName %>.characterStrings.NAMES[1], <%= charName %>.Enums.<%= charNameEnum %>),
+                CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, <%= charName %>.Enums.<%= charNameEnum %>);
     }
 
     <%_ } _%>

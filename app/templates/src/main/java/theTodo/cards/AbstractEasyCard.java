@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 <%_ if (createChar) { _%>
-import <%= modIdCamel %>.TheTodo;
+import <%= modIdCamel %>.<%= charName %>;
 <%_ } _%>
 import <%= modIdCamel %>.util.CardArtRoller;
 
@@ -47,7 +47,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     private boolean needsArtRefresh = false;
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, <%_ if (createChar) { _%> TheTodo.Enums.TODO_COLOR<%_ } else { _%> CardColor.COLORLESS<%_ } _%>);
+        this(cardID, cost, type, rarity, target, <%_ if (createChar) { _%> <%= charName %>.Enums.TODO_COLOR<%_ } else { _%> CardColor.COLORLESS<%_ } _%>);
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {

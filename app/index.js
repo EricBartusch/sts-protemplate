@@ -34,8 +34,7 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "steamPath",
-        message:
-          "Where is steam installed? If blank, will default to: C:\\Program Files (x86)\\Steam\\steamapps",
+        message: "Where is steam installed?",
         default: "C:\\Program Files (x86)\\Steam\\steamapps"
       }
     ]);
@@ -75,6 +74,30 @@ module.exports = class extends Generator {
       this.answers.modIdPascal.charAt(0).toUpperCase() +
       this.answers.modIdPascal.slice(1);
     this.modIdCamel = toCamelCase(this.answers.modIdPascal);
+
+    if (this.customizations.createChar) {
+      this.characterName = await this.prompt({
+        type: "input",
+        name: "charName",
+        message: "What is the name of the character?",
+        default: "TheTodo"
+      });
+    } else {
+      this.characterName = { charName: "TheTodo" };
+    }
+
+    // Change TheTodo to THE_TODO for use in Enums
+    this.characterName.charNameEnum = this.characterName.charName
+      .split(/(?=[A-Z])/)
+      .join("_")
+      .toUpperCase();
+    // Change TheTodo to The Todo and the Todo for charstrings
+    this.characterName.charStringsCapital = this.characterName.charName
+      .replace(/([A-Z])/g, " $1")
+      .trim();
+    this.characterName.charStringsFirstLower =
+      this.characterName.charStringsCapital.slice(0, 1).toLowerCase() +
+      this.characterName.charStringsCapital.slice(1);
   }
 
   writing() {
@@ -91,7 +114,9 @@ module.exports = class extends Generator {
         createCards: this.customizations.createCards,
         createRelics: this.customizations.createRelics,
         createPowers: this.customizations.createPowers,
-        createChar: this.customizations.createChar
+        createChar: this.customizations.createChar,
+        charName: this.characterName.charName,
+        charNameEnum: this.characterName.charNameEnum
       }
     );
 
@@ -99,12 +124,16 @@ module.exports = class extends Generator {
     if (this.customizations.createChar) {
       this.fs.copyTpl(
         this.templatePath(`src/main/java/theTodo/TheTodo.java`),
-        this.destinationPath(`src/main/java/${this.modIdCamel}/TheTodo.java`),
+        this.destinationPath(
+          `src/main/java/${this.modIdCamel}/${this.characterName.charName}.java`
+        ),
         {
           modIdPascal: this.answers.modIdPascal,
           modIdCamel: this.modIdCamel,
           createCards: this.customizations.createCards,
-          createRelics: this.customizations.createRelics
+          createRelics: this.customizations.createRelics,
+          charName: this.characterName.charName,
+          charNameEnum: this.characterName.charNameEnum
         }
       );
     }
@@ -160,7 +189,8 @@ module.exports = class extends Generator {
         {
           modIdPascal: this.answers.modIdPascal,
           modIdCamel: this.modIdCamel,
-          createChar: this.customizations.createChar
+          createChar: this.customizations.createChar,
+          charName: this.characterName.charName
         },
         null,
         { globOptions: { dot: true } }
@@ -189,7 +219,8 @@ module.exports = class extends Generator {
         {
           modIdPascal: this.answers.modIdPascal,
           modIdCamel: this.modIdCamel,
-          createChar: this.customizations.createChar
+          createChar: this.customizations.createChar,
+          charName: this.characterName.charName
         },
         null,
         { globOptions: { dot: true } }
@@ -218,7 +249,10 @@ module.exports = class extends Generator {
       ),
       {
         modIdPascal: this.answers.modIdPascal,
-        modIdCamel: this.modIdCamel
+        modIdCamel: this.modIdCamel,
+        charName: this.characterName.charName,
+        charStringsCapital: this.characterName.charStringsCapital,
+        charStringsFirstLower: this.characterName.charStringsFirstLower
       },
       null,
       { globOptions: { dot: true } }

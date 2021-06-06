@@ -31,10 +31,10 @@ import <%= modIdCamel %>.relics.TodoItem;
 
 import java.util.ArrayList;
 
-import static <%= modIdCamel %>.TheTodo.Enums.TODO_COLOR;
+import static <%= modIdCamel %>.<%= charName %>.Enums.TODO_COLOR;
 import static <%= modIdCamel %>.<%= modIdPascal %>.*;
 
-public class TheTodo extends CustomPlayer {
+public class <%= charName %> extends CustomPlayer {
     private static final String[] orbTextures = {
             modID + "Resources/images/char/mainChar/orb/layer1.png",
             modID + "Resources/images/char/mainChar/orb/layer2.png",
@@ -47,13 +47,13 @@ public class TheTodo extends CustomPlayer {
             modID + "Resources/images/char/mainChar/orb/layer3d.png",
             modID + "Resources/images/char/mainChar/orb/layer4d.png",
             modID + "Resources/images/char/mainChar/orb/layer5d.png",};
-    static final String ID = makeID("TheTodo"); //TODO: Change this
+    static final String ID = makeID("<%= charName %>");
     static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
 
 
-    public TheTodo(String name, PlayerClass setClass) {
+    public <%= charName %>(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), new SpriterAnimation(
                 modID + "Resources/images/char/mainChar/static.scml"));
         initializeClass(null,
@@ -152,7 +152,7 @@ public class TheTodo extends CustomPlayer {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new TheTodo(name, chosenClass);
+        return new <%= charName %>(name, chosenClass);
     }
 
     @Override
@@ -186,7 +186,7 @@ public class TheTodo extends CustomPlayer {
     public static class Enums {
         //TODO: Change these.
         @SpireEnum
-        public static AbstractPlayer.PlayerClass THE_TODO;
+        public static AbstractPlayer.PlayerClass <%= charNameEnum %>;
         @SpireEnum(name = "TODO_COLOR")
         public static AbstractCard.CardColor TODO_COLOR;
         @SpireEnum(name = "TODO_COLOR")
