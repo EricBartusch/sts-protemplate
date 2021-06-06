@@ -47,7 +47,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     private boolean needsArtRefresh = false;
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, <%_ if (createChar) { _%> <%= charName %>.Enums.TODO_COLOR<%_ } else { _%> CardColor.COLORLESS<%_ } _%>);
+        this(cardID, cost, type, rarity, target, <%_ if (createChar) { _%> <%= charName %>.Enums.<%= charColor %><%_ } else { _%> CardColor.COLORLESS<%_ } _%>);
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {

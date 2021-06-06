@@ -13,11 +13,6 @@ Instead follow the guide [here](https://github.com/Gremious/StS-DefaultModBase/w
 3. Navigate to your local git repo
 4. Run `yo sts-protemplate` and follow prompts
 
-## Things you'll still need to do
-
-1. Update CardColor enum
-2. Update the description in pom.xml
-
 ## Don't want to use yeoman? Try this:
 
 Download the .zip of [this branch](https://github.com/EricBartusch/sts-protemplate/tree/no-yeoman-please)

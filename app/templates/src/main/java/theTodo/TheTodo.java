@@ -31,7 +31,7 @@ import <%= modIdCamel %>.relics.TodoItem;
 
 import java.util.ArrayList;
 
-import static <%= modIdCamel %>.<%= charName %>.Enums.TODO_COLOR;
+import static <%= modIdCamel %>.<%= charName %>.Enums.<%= charColor %>;
 import static <%= modIdCamel %>.<%= modIdPascal %>.*;
 
 public class <%= charName %> extends CustomPlayer {
@@ -121,7 +121,7 @@ public class <%= charName %> extends CustomPlayer {
 
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return TODO_COLOR;
+        return <%= charColor %>;
     }
 
     @Override
@@ -184,12 +184,11 @@ public class <%= charName %> extends CustomPlayer {
     }
 
     public static class Enums {
-        //TODO: Change these.
         @SpireEnum
         public static AbstractPlayer.PlayerClass <%= charNameEnum %>;
-        @SpireEnum(name = "TODO_COLOR")
-        public static AbstractCard.CardColor TODO_COLOR;
-        @SpireEnum(name = "TODO_COLOR")
+        @SpireEnum(name = "<%= charColor %>")
+        public static AbstractCard.CardColor <%= charColor %>;
+        @SpireEnum(name = "<%= charColor %>")
         @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
