@@ -13,6 +13,8 @@ Instead follow the guide [here](https://github.com/Gremious/StS-DefaultModBase/w
 3. Navigate to your local git repo
 4. Run `yo sts-protemplate` and follow prompts
 
+If you want to start at an absolutely blank slate, run `yo sts-protemplate --empty` and follow the prompts
+
 ## Don't want to use yeoman? Try this:
 
 Download the .zip of [this branch](https://github.com/EricBartusch/sts-protemplate/tree/no-yeoman-please)
