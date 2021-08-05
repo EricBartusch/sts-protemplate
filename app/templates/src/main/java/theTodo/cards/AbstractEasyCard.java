@@ -67,9 +67,15 @@ public abstract class AbstractEasyCard extends CustomCard {
         }
     }
 
+    //Fixing bug documented here: https://github.com/DarkVexon/ProTemplate/issues/4
     @Override
     protected Texture getPortraitImage() {
-        return CardArtRoller.getPortraitTexture(this);
+        if (textureImg.contains("ui/missing.png")) {
+            return CardArtRoller.getPortraitTexture(this);
+        }
+        else {
+            return super.getPortraitImage();
+        }
     }
 
     public static String getCardTextureString(final String cardName, final AbstractCard.CardType cardType) {
