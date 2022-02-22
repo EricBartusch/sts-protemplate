@@ -1,14 +1,15 @@
 package <%= modIdCamel %>.cards.democards.complex;
 
 import basemod.AutoAdd;
+import basemod.cardmods.EtherealMod;
+import basemod.cardmods.ExhaustMod;
 import basemod.helpers.CardModifierManager;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import <%= modIdCamel %>.cardmods.EtherealMod;
-import <%= modIdCamel %>.cardmods.ExhaustMod;
+
 import <%= modIdCamel %>.cards.AbstractEasyCard;
 
 import java.util.ArrayList;
@@ -17,7 +18,6 @@ import java.util.Collections;
 import static <%= modIdCamel %>.<%= modIdPascal %>.makeID;
 import static <%= modIdCamel %>.util.Wiz.*;
 
-@AutoAdd.Ignore
 public class SelectCardsPlusCardMods extends AbstractEasyCard {
 
     public final static String ID = makeID("SelectCardsPlusCardMods");

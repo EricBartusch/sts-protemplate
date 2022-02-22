@@ -67,7 +67,6 @@ public abstract class AbstractEasyCard extends CustomCard {
         }
     }
 
-    //Fixing bug documented here: https://github.com/DarkVexon/ProTemplate/issues/4
     @Override
     protected Texture getPortraitImage() {
         if (textureImg.contains("ui/missing.png")) {
@@ -230,5 +229,21 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     protected void blck() {
         atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
+    }
+
+    public String cardArtCopy() {
+        return null;
+    }
+
+    protected void upMagic(int x) {
+        upgradeMagicNumber(x);
+    }
+
+    protected void upSecondMagic(int x) {
+        upgradeSecondMagic(x);
+    }
+
+    protected void upSecondDamage(int x) {
+        upgradeSecondDamage(x);
     }
 }
