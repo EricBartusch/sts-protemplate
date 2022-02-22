@@ -353,6 +353,12 @@ module.exports = class extends Generator {
         this.fs.delete(
           `src/main/resources/${this.answers.modIdPascal.toLowerCase()}Resources/localization/eng/Powerstrings.json`
         );
+        this.fs.delete(
+          `src/main/java/${this.modIdCamel}/cards/democards/complex/ExampleTwoAmountPowerCard.java`
+        );
+        this.fs.delete(
+          `src/main/java/${this.modIdCamel}/cards/democards/complex/InlinePowerDemo.java`
+        );
       }
 
       if (!this.customizations.createChar) {

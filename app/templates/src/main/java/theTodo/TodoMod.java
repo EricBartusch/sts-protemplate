@@ -28,6 +28,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 <%_ } _%>
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 <%_if (createCards) { _%>
 import <%= modIdCamel %>.cards.AbstractEasyCard;
 import <%= modIdCamel %>.cards.cardvars.SecondDamage;
@@ -56,6 +58,9 @@ public class <%= modIdPascal %> implements
     public static String makeID(String idText) {
         return modID + ":" + idText;
     }
+
+    // This makes debugging so much easier
+    public static Logger logger = LogManager.getLogger(<%= modIdPascal %>.class.getName());
 
     <%_ if (createChar) { _%>    
     public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
