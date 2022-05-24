@@ -4,7 +4,7 @@ Yeoman generator for starting up new Slay the Spire mods.
 Based on the [template made by DarkVexon](https://github.com/DarkVexon/ProTemplate)
 
 Note: If you're new to modding Slay the Spire, don't use this.
-Instead follow the guide [here](https://github.com/Gremious/StS-DefaultModBase/wiki)
+Instead, follow the guide [here](https://github.com/Alchyr/BasicMod#basic-mod)
 
 ## How to use
 
